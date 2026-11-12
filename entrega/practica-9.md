@@ -114,3 +114,6 @@ El proyecto de Enterprise Architect disponible en la rama se encuentra en [model
 | Observación del equipo revisor | Qué hicimos |
 | --- | --- |
 | | |
+
+
+**Estado de la revisión cruzada:** pendiente de recibir observaciones de otro equipo. Nuestro equipo ya revisó la entrega internamente. La representante confirmó con el profesor que se puede entregar el modelo en formato `.eap` y [dejó constancia en el PR #2](https://github.com/SistemasTecTlaxiaco/fundamentos-de-ingenieria-de-software-diagrama-de-clases-group-4/pull/2#issuecomment-6837265253).
