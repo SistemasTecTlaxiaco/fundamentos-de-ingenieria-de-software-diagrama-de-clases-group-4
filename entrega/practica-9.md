@@ -117,19 +117,24 @@ La matriz vincula cada clase con sus requisitos del DRS y las referencias a proc
 
 ## 8. Diagrama y notación UML
 
-El proyecto de Enterprise Architect disponible en la rama se encuentra en [modelo/OpenHub-5BS.eap](../modelo/OpenHub-5BS.eap). La imagen del diagrama corresponde a `docs/analisis/diagrama-clases.png`.
+El proyecto de Enterprise Architect disponible en la rama se encuentra en [modelo/OpenHub-5BS.eap](../modelo/OpenHub-5BS.eap).
+
+![Diagrama de clases del módulo de productores y comercialización](../docs/analisis/diagrama-clases.png)
 
 ## 9. Trabajo en equipo
 
 | Integrante | Pull requests que abrió | Pull requests que revisó |
 | --- | --- | --- |
-| Giovanna | [#2](https://github.com/SistemasTecTlaxiaco/fundamentos-de-ingenieria-de-software-diagrama-de-clases-group-4/pull/2) |  |
-| Edwin |  |  |
-| Daniel |  |  |
-| Fernando |  |  |
+| Giovanna | [#2](https://github.com/SistemasTecTlaxiaco/fundamentos-de-ingenieria-de-software-diagrama-de-clases-group-4/pull/2) | |
+| Edwin | | [#2](https://github.com/SistemasTecTlaxiaco/fundamentos-de-ingenieria-de-software-diagrama-de-clases-group-4/pull/2) |
+| Daniel | | |
+| Fernando | | |
 
 ## 10. Revisión cruzada
 
 | Observación del equipo revisor | Qué hicimos |
 | --- | --- |
-|  |  |
+| | |
+
+
+**Estado de la revisión cruzada:** pendiente de recibir observaciones de otro equipo. Nuestro equipo ya revisó la entrega internamente. La representante confirmó con el profesor que se puede entregar el modelo en formato `.eap` y [dejó constancia en el PR #2](https://github.com/SistemasTecTlaxiaco/fundamentos-de-ingenieria-de-software-diagrama-de-clases-group-4/pull/2).
