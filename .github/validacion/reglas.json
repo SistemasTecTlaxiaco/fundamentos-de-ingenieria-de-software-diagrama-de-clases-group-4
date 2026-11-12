@@ -2,14 +2,27 @@
   "practica": "Práctica 9 · Diagrama de clases (UML)",
   "imagenes_minimas": 1,
   "imagenes_en": [
-    "docs/analisis/**/*.png",
-    "docs/analisis/**/*.jpg",
-    "entrega/**/*.png",
-    "entrega/**/*.jpg"
+    "**/*.png",
+    "**/*.jpg",
+    "**/*.jpeg"
   ],
   "archivos_recomendados": [
-    "modelo/*.qea",
-    "docs/analisis/trazabilidad.csv"
+    {
+      "patrones": [
+        "**/*.qea",
+        "**/*.qeax",
+        "**/*.eap",
+        "**/*.eapx"
+      ],
+      "nombre": "el proyecto de Architect (`.qea` o `.eap`) en `modelo/`"
+    },
+    {
+      "patrones": [
+        "**/trazabilidad*.csv",
+        "**/*trazabilidad*"
+      ],
+      "nombre": "la tabla de trazabilidad (en el documento o como `docs/analisis/trazabilidad.csv`)"
+    }
   ],
   "secciones": [
     {
