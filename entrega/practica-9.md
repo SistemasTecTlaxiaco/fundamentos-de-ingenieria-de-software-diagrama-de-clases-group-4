@@ -20,40 +20,61 @@ Las clases se identificaron a partir de los sustantivos del DRS. El modelo cubre
 
 ## 2. Atributos y tipos
 
-Los importes se representan con Decimal. Las enumeraciones limitan los estados y tipos a los valores definidos en el modelo.
+Cada atributo se declara con su tipo. Los importes usan Decimal y los estados usan enumeraciones para limitar los valores admitidos por el modelo.
 
-| Clase | Atributos y tipos |
-| --- | --- |
-| Usuario | idUsuario: String, nombre: String, roles: RolUsuario [1..*], credenciales: String |
-| Producto | idProducto: String, nombre: String, fotografia: Imagen, precio: Decimal, estado: EstadoProducto |
-| Mensaje | idMensaje: String, tipo: TipoMensaje, texto: String, audio: Audio, fecha: Date |
-| Carrito | idCarrito: String, fechaCreacion: Date |
-| ItemCarrito | cantidad: Integer |
-| Pedido | idPedido: String, precio: Decimal, envio: Decimal, comision: Decimal, total: Decimal, estadoCobro: EstadoCobro, estadoEnvio: EstadoEnvio, fecha: Date |
-| SolicitudSoporte | folio: String, descripcion: String, fecha: Date |
+| Clase | Atributo y tipo | Descripción |
+| --- | --- | --- |
+| Usuario | idUsuario: String | Identificador único. |
+| Usuario | nombre: String | Nombre de la persona. |
+| Usuario | roles: RolUsuario [1..*] | Uno o más roles asignados a una misma persona. |
+| Usuario | credenciales: String | Credenciales de acceso, guardadas de forma protegida (RNF-02, RNF-03). |
+| Producto | idProducto: String | Identificador único. |
+| Producto | nombre: String | Nombre del producto (RF-01). |
+| Producto | fotografia: Imagen | Fotografía del producto (RF-01). |
+| Producto | precio: Decimal | Precio en MXN con dos decimales (RF-01, RNF-04). |
+| Producto | estado: EstadoProducto | Activo o inactivo; solo los activos aparecen en el catálogo público (RF-02). |
+| Mensaje | idMensaje: String | Identificador único. |
+| Mensaje | tipo: TipoMensaje | Escrito o audio. |
+| Mensaje | texto: String | Contenido del mensaje escrito (RF-03). |
+| Mensaje | audio: Audio | Grabación del mensaje de audio (RF-04). |
+| Mensaje | fecha: Date | Fecha y hora de envío. |
+| Carrito | idCarrito: String | Identificador único. |
+| Carrito | fechaCreacion: Date | Fecha de creación del carrito. |
+| ItemCarrito | cantidad: Integer | Cantidad elegida del producto (RF-05). |
+| Pedido | idPedido: String | Identificador único. |
+| Pedido | precio: Decimal | Importe de los productos, en MXN (RNF-04). |
+| Pedido | envio: Decimal | Importe de envío, capturado o confirmado por el vendedor (RF-06). |
+| Pedido | comision: Decimal | Comisión aplicable, capturada o confirmada por el vendedor (RF-06). |
+| Pedido | total: Decimal | Precio + envío + comisión. |
+| Pedido | estadoCobro: EstadoCobro | Pendiente o recibido (RF-07). |
+| Pedido | estadoEnvio: EstadoEnvio | Preparado, enviado o entregado (RF-08). |
+| Pedido | fecha: Date | Fecha del pedido. |
+| SolicitudSoporte | folio: String | Folio visible para el usuario (RF-09). |
+| SolicitudSoporte | descripcion: String | Descripción del problema. |
+| SolicitudSoporte | fecha: Date | Fecha de la solicitud. |
 
 ## 3. Operaciones
 
-Las operaciones representan las acciones de los requisitos. Cada firma indica los parámetros, el tipo de retorno y el requisito asociado.
+Las operaciones representan las acciones de los requisitos. La tabla muestra la firma, el tipo de retorno y la función que cumple cada operación.
 
-| Clase | Operación | Requisito |
+| Clase | Operación | Descripción |
 | --- | --- | --- |
-| Usuario | autenticar(credenciales: String): Boolean | RNF-02 |
-| Producto | registrar(nombre: String, fotografia: Imagen, precio: Decimal): Producto | RF-01 |
-| Producto | cambiarEstado(estado: EstadoProducto): void | RF-02 |
-| Producto | consultarActivos(): Lista&lt;Producto&gt; | RF-02 |
-| Producto | contarConsultas(inicio: Date, fin: Date): Integer | RF-10 |
-| Mensaje | enviar(): void | RF-03; RF-04 |
-| Mensaje | reproducirAudio(): void | RF-04 |
-| Carrito | agregarProducto(producto: Producto, cantidad: Integer): ItemCarrito | RF-05 |
-| Carrito | calcularSubtotal(): Decimal | RF-05 |
-| ItemCarrito | subtotal(): Decimal | RF-05 |
-| Pedido | confirmar(): void | RF-06 |
-| Pedido | calcularTotal(): Decimal | RF-06 |
-| Pedido | registrarCobro(estado: EstadoCobro): void | RF-07 |
-| Pedido | actualizarEnvio(estado: EstadoEnvio): void | RF-08 |
-| SolicitudSoporte | enviar(): String | RF-09 |
-| SolicitudSoporte | generarFolio(): String | RF-09 |
+| Usuario | autenticar(credenciales: String): Boolean | Verifica la sesión; sin ella se niega el acceso a datos privados (RNF-02). |
+| Producto | registrar(nombre: String, fotografia: Imagen, precio: Decimal): Producto | Crea la ficha y la agrega al catálogo del productor (RF-01). |
+| Producto | cambiarEstado(estado: EstadoProducto): void | Activa o desactiva la ficha (RF-02). |
+| Producto | consultarActivos(): Lista<Producto> | Devuelve las fichas activas para la vista pública (RF-02). |
+| Producto | contarConsultas(inicio: Date, fin: Date): Integer | Cuenta los mensajes recibidos por el producto en el periodo elegido (RF-10). |
+| Mensaje | enviar(): void | Entrega el mensaje al productor, asociado al producto consultado (RF-03, RF-04). |
+| Mensaje | reproducirAudio(): void | Reproduce el audio en la conversación del productor (RF-04). |
+| Carrito | agregarProducto(producto: Producto, cantidad: Integer): ItemCarrito | Registra el producto y la cantidad elegida (RF-05). |
+| Carrito | calcularSubtotal(): Decimal | Suma los subtotales de sus ítems. |
+| ItemCarrito | subtotal(): Decimal | Precio del producto por la cantidad. |
+| Pedido | confirmar(): void | Confirma si el carrito tiene al menos un ítem y se han definido los importes (RF-06). |
+| Pedido | calcularTotal(): Decimal | Calcula el total y lo presenta desglosado (RF-06). |
+| Pedido | registrarCobro(estado: EstadoCobro): void | Guarda el estado de cobro (RF-07). |
+| Pedido | actualizarEnvio(estado: EstadoEnvio): void | Actualiza el estado del pedido (RF-08). |
+| SolicitudSoporte | enviar(): String | Registra la solicitud y devuelve el folio (RF-09). |
+| SolicitudSoporte | generarFolio(): String | Genera el folio único de la solicitud. |
 
 ## 4. Encapsulamiento y visibilidad
 
@@ -105,7 +126,7 @@ El proyecto de Enterprise Architect disponible en la rama se encuentra en [model
 | Integrante | Pull requests que abrió | Pull requests que revisó |
 | --- | --- | --- |
 | Giovanna | [#2](https://github.com/SistemasTecTlaxiaco/fundamentos-de-ingenieria-de-software-diagrama-de-clases-group-4/pull/2) | |
-| Edwin | | |
+| Edwin | | [#2](https://github.com/SistemasTecTlaxiaco/fundamentos-de-ingenieria-de-software-diagrama-de-clases-group-4/pull/2) |
 | Daniel | | |
 | Fernando | | |
 
