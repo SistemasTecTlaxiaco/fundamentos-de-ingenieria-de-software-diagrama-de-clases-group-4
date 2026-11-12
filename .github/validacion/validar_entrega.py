@@ -411,8 +411,11 @@ def main():
         if s.get("al_final"):
             # Se califica al cerrar la práctica, con el historial completo de pull requests.
             resumen = "; ".join(gh["lineas"][:6]) if gh else ""
-            al_final.append((s["criterio"], FINAL, "Se califica al final, cuando el pull request ya esté revisado por otro integrante y fusionado."
-                             + (f" Hasta ahora en GitHub: {resumen}." if resumen else "")))
+            if s.get("al_final_msg"):
+                al_final.append((s["criterio"], FINAL, s["al_final_msg"]))
+            else:
+                al_final.append((s["criterio"], FINAL, "Se califica al final, cuando el pull request ya esté revisado por otro integrante y fusionado."
+                                 + (f" Hasta ahora en GitHub: {resumen}." if resumen else "")))
             continue
         estado, msg = evaluar(s, cuerpo.get(s["criterio"]), texto)
         if s.get("github"):
