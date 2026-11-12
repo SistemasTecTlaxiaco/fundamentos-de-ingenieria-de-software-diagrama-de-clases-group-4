@@ -1,1 +1,9 @@
 clase,requisito,justificacion
+clase	requisito	justificacion
+Usuario	RNF-02; RNF-03	Transversal. Control de acceso; Comunicación segura
+Producto	RF-01; RF-02; RF-10	P-01; P-02; P-06. Registrar producto; Consultar catálogo; Consultar estadísticas
+Mensaje	RF-03; RF-04	P-03. Enviar mensaje; Enviar audio
+Carrito	RF-05	P-04. Agregar al carrito
+ItemCarrito	RF-05	P-04. Agregar al carrito
+Pedido	RF-06; RF-07; RF-08; RNF-04	P-04; P-05. Confirmar pedido; Registrar cobro; Actualizar estado de pedido
+SolicitudSoporte	RF-09	P-06. Solicitar asistencia
