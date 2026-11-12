@@ -1,16 +1,12 @@
 {
   "practica": "Práctica 9 · Diagrama de clases (UML)",
-  "carpeta": "entrega",
-  "nombres": [
-    "practica-9.md",
-    "practica-9.pdf"
-  ],
   "imagenes_minimas": 1,
   "imagenes_en": [
-    "docs/analisis/*.png",
-    "entrega/img/*.png"
+    "docs/analisis/**/*.png",
+    "docs/analisis/**/*.jpg",
+    "entrega/**/*.png",
+    "entrega/**/*.jpg"
   ],
-  "archivos_requeridos": [],
   "archivos_recomendados": [
     "modelo/*.qea",
     "docs/analisis/trazabilidad.csv"
@@ -18,7 +14,6 @@
   "secciones": [
     {
       "criterio": "1. Clases identificadas desde el DRS",
-      "titulo": "Clases identificadas",
       "min_palabras": 30,
       "comprobaciones": [
         {
@@ -32,23 +27,38 @@
           "patron": "^\\s*\\|?\\s*sistema\\s*\\|",
           "mensaje": "Aparece una clase «Sistema»; la rúbrica no la acepta como clase del dominio."
         }
+      ],
+      "titulos": [
+        "Clases identificadas",
+        "Clases identificadas desde el DRS",
+        "Identificación de clases",
+        "Identificacion de clases",
+        "Clases del DRS",
+        "Carrera de sustantivos",
+        "Clases"
       ]
     },
     {
       "criterio": "2. Atributos y tipos de datos",
-      "titulo": "Atributos y tipos",
       "min_palabras": 15,
       "comprobaciones": [
         {
-          "patron": "\\b[a-z]\\w*\\s*:\\s*[a-z]\\w*",
+          "patron": "(\\b[a-z]\\w*\\s*:\\s*[a-z]\\w*|^[-+#~]?\\s*[a-z]\\w*\\s*$\\n^\\s*(string|int|integer|decimal|date|boolean|float|double|texto|entero|fecha)\\b)",
           "min": 4,
           "mensaje": "Escriban los atributos con su tipo, como «kilos: decimal» (al menos 4)."
         }
+      ],
+      "titulos": [
+        "Atributos y tipos",
+        "Atributos y tipos de datos",
+        "Especificación de clases",
+        "Atributos",
+        "Especificacion de las clases",
+        "Diccionario de clases"
       ]
     },
     {
       "criterio": "3. Operaciones ligadas a los requisitos",
-      "titulo": "Operaciones",
       "min_palabras": 15,
       "comprobaciones": [
         {
@@ -61,11 +71,18 @@
           "min": 2,
           "mensaje": "Indiquen de qué RF sale cada operación (al menos 2 citas)."
         }
+      ],
+      "titulos": [
+        "Operaciones",
+        "Operaciones ligadas a los requisitos",
+        "Especificación de clases",
+        "Operaciones y métodos",
+        "Métodos",
+        "Responsabilidades"
       ]
     },
     {
       "criterio": "4. Encapsulamiento y visibilidad",
-      "titulo": "Encapsulamiento y visibilidad",
       "min_palabras": 20,
       "comprobaciones": [
         {
@@ -73,11 +90,15 @@
           "min": 1,
           "mensaje": "Expliquen qué es privado (−) y qué es público (+), y por qué."
         }
+      ],
+      "titulos": [
+        "Encapsulamiento y visibilidad",
+        "Visibilidad",
+        "Encapsulamiento"
       ]
     },
     {
       "criterio": "5. Asociaciones y multiplicidad",
-      "titulo": "Asociaciones y multiplicidad",
       "min_palabras": 20,
       "comprobaciones": [
         {
@@ -85,11 +106,17 @@
           "min": 2,
           "mensaje": "Escriban la multiplicidad de las asociaciones, como 1..* o 0..1 (al menos 2)."
         }
+      ],
+      "titulos": [
+        "Asociaciones y multiplicidad",
+        "Asociaciones",
+        "Relaciones",
+        "Multiplicidad",
+        "Relaciones entre clases"
       ]
     },
     {
       "criterio": "6. Agregación, composición y herencia",
-      "titulo": "Agregacion, composicion y herencia",
       "min_palabras": 20,
       "comprobaciones": [
         {
@@ -97,11 +124,17 @@
           "min": 1,
           "mensaje": "Expliquen cuál usaron y por qué, o por qué su modelo no las necesita."
         }
+      ],
+      "titulos": [
+        "Agregación, composición y herencia",
+        "Agregación y composición",
+        "Composición",
+        "Herencia",
+        "Relaciones especiales"
       ]
     },
     {
       "criterio": "7. Trazabilidad con el DRS y el BPMN",
-      "titulo": "Trazabilidad",
       "min_palabras": 15,
       "comprobaciones": [
         {
@@ -109,36 +142,56 @@
           "min": 4,
           "mensaje": "La tabla de trazabilidad debe citar al menos 4 requisitos."
         }
+      ],
+      "titulos": [
+        "Trazabilidad",
+        "Trazabilidad con el DRS y el BPMN",
+        "Matriz de trazabilidad"
       ]
     },
     {
       "criterio": "8. Notación UML y uso de Architect",
-      "titulo": "Diagrama y notacion UML",
       "min_palabras": 0,
       "comprobaciones": [
         {
-          "patron": "architect",
+          "patron": "(architect|\\.qea|enterprise)",
           "min": 1,
           "aviso": true,
-          "mensaje": "Indiquen que el diagrama se hizo en Architect y dónde está el .qea."
+          "mensaje": "Indiquen que el diagrama se hizo en Architect y suban el .qea a modelo/."
         }
+      ],
+      "titulos": [
+        "Diagrama y notación UML",
+        "Notación UML y uso de Architect",
+        "Notación UML",
+        "Diagrama de clases",
+        "Uso de Architect",
+        "Diagrama"
       ]
     },
     {
       "criterio": "9. Trabajo por pull request",
-      "titulo": "Trabajo en equipo",
       "min_palabras": 0,
       "comprobaciones": [
         {
-          "patron": "#\\d+",
-          "min": 2,
-          "mensaje": "Indiquen con su número qué pull requests abrió y revisó cada integrante (por ejemplo, #3)."
+          "patron": "(#\\d+|pull request)",
+          "min": 1,
+          "mensaje": "Indiquen qué pull requests abrió y revisó cada integrante (por ejemplo, #3)."
         }
-      ]
+      ],
+      "titulos": [
+        "Trabajo en equipo",
+        "Trabajo por pull request",
+        "Pull requests",
+        "Trabajo colaborativo",
+        "Bitácora del equipo"
+      ],
+      "github": "pull_requests",
+      "buscar_en_todo": false,
+      "al_final": true
     },
     {
       "criterio": "10. Revisión cruzada y mejora",
-      "titulo": "Revision cruzada",
       "min_palabras": 30,
       "comprobaciones": [
         {
@@ -151,7 +204,34 @@
           "min": 1,
           "mensaje": "Anoten qué corrigieron o justificaron por cada observación."
         }
-      ]
+      ],
+      "titulos": [
+        "Revisión cruzada",
+        "Revisión cruzada y mejora",
+        "Revisión entre equipos",
+        "Retroalimentación",
+        "Observaciones del equipo revisor",
+        "Mejoras"
+      ],
+      "github": "revision",
+      "buscar_en_todo": false
     }
-  ]
+  ],
+  "buscar": [
+    "entrega/**/*.pdf",
+    "entrega/**/*.docx",
+    "entrega/**/*.md",
+    "*.pdf",
+    "*.docx",
+    "docs/**/*.pdf",
+    "docs/**/*.docx"
+  ],
+  "ignorar": [
+    "guia-de-entrega.md",
+    "leeme.md",
+    "plantilla-practica-9.docx",
+    "readme.md",
+    "rubrica.md"
+  ],
+  "palabras_minimas_entrega": 150
 }
